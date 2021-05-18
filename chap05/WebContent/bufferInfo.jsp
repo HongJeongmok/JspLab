@@ -7,11 +7,11 @@
 <body>
 
 	버퍼 크기:
-	<%= out.getBufferSize() %>
+	<%=out.getBufferSize()%>
 	<br> 남은 크기:
-	<%= out.getRemaining() %>
+	<%=out.getRemaining()%>
 	<br> auto flush:
-	<%= out.isAutoFlush() %>
+	<%=out.isAutoFlush()%>
 	<br>
 
 </body>
