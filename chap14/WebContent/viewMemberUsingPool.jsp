@@ -20,7 +20,7 @@ MEMBER 테이블의 내용
 	ResultSet rs = null;
 	
 	try {
-		String jdbcDriver = "jdbc:apache:commons:dbcp:chap14";
+		String jdbcDriver = "jdbc:apache:commons:dbcp:chap14";  //chap14 : connectionPool
 		String query = "select * from MEMBER order by MEMBERID";
 		conn = DriverManager.getConnection(jdbcDriver);
 		stmt = conn.createStatement();
