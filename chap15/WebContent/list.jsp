@@ -9,7 +9,7 @@
 	if (pageNumberStr != null) {
 		pageNumber = Integer.parseInt(pageNumberStr);
 	}
-
+ 
 	GetMessageListService messageListService = 
 			GetMessageListService.getInstance();
 	MessageListView viewData = 
