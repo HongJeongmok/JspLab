@@ -13,7 +13,7 @@
 	GetMessageListService messageListService = 
 			GetMessageListService.getInstance();
 	MessageListView viewData = 
-			messageListService.getMessageList(pageNumber);
+			messageListService.getMessageList(pageNumber);  // messageListService에 getMessageList의 pageNumber를 파라미터로 넘김
 %>
 <c:set var="viewData" value="<%= viewData %>"/>
 <html>

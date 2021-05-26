@@ -26,6 +26,7 @@ public class GetMessageListService {
 		Connection conn = null;
 		int currentPageNumber = pageNumber;
 		try {
+			// 커넥션풀에서 커넥션을 가져옴
 			conn = ConnectionProvider.getConnection();
 			MessageDao messageDao = MessageDao.getInstance();
 
