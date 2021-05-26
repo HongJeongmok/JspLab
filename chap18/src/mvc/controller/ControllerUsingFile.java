@@ -19,11 +19,14 @@ import mvc.command.NullHandler;
 public class ControllerUsingFile extends HttpServlet {
 
     // <커맨드, 핸들러인스턴스> 매핑 정보 저장
+	// {"hello":"mvc.hello.HelloHandler(Handler객체)", "someCommand":"any.SomeHandler(SomeHandler객체)";}
     private Map<String, CommandHandler> commandHandlerMap = 
     		new HashMap<>();
 
     public void init() throws ServletException {
         String configFile = getInitParameter("configFile");
+        // Properties = map 자료구조로 키=String, Value=String, {key:value}
+        // {"hello":"mvc.hello.HelloHandler", "someCommand":"any.SomeHandler";}
         Properties prop = new Properties();
         String configFilePath = getServletContext().getRealPath(configFile);
         try (FileReader fis = new FileReader(configFilePath)) {
@@ -59,7 +62,7 @@ public class ControllerUsingFile extends HttpServlet {
 
     private void process(HttpServletRequest request,
     HttpServletResponse response) throws ServletException, IOException {
-        String command = request.getParameter("cmd");
+        String command = request.getParameter("cmd");  // hello
         CommandHandler handler = commandHandlerMap.get(command);
         if (handler == null) {
             handler = new NullHandler();
@@ -67,6 +70,7 @@ public class ControllerUsingFile extends HttpServlet {
         String viewPage = null;
         try {
             viewPage = handler.process(request, response);
+            // "/WEB-INF/view/hello.jsp"
         } catch (Throwable e) {
             throw new ServletException(e);
         }

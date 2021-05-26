@@ -19,6 +19,7 @@ import mvc.command.NullHandler;
 public class ControllerUsingURI extends HttpServlet {
 
     // <커맨드, 핸들러인스턴스> 매핑 정보 저장
+	// {"hello":"mvc.hello.HelloHandler(Handler객체)";}
     private Map<String, CommandHandler> commandHandlerMap = 
     		new HashMap<>();
 
@@ -59,8 +60,8 @@ public class ControllerUsingURI extends HttpServlet {
 
     private void process(HttpServletRequest request,
     HttpServletResponse response) throws ServletException, IOException {
-		String command = request.getRequestURI();
-		if (command.indexOf(request.getContextPath()) == 0) {
+		String command = request.getRequestURI();  // "/chap18/hello.do"
+		if (command.indexOf(request.getContextPath()) == 0) {  // indexOf -> "/hello.do"
 			command = command.substring(request.getContextPath().length());
 		}
         CommandHandler handler = commandHandlerMap.get(command);
