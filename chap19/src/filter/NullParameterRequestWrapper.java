@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequestWrapper;
 public class NullParameterRequestWrapper extends HttpServletRequestWrapper {
 
     private Map<String, String[]> parameterMap = null;
+    // {"id":"hong", "name":"홍길동", "member":"2"}
 
     public NullParameterRequestWrapper(HttpServletRequest request) {
         super(request);
@@ -21,7 +22,7 @@ public class NullParameterRequestWrapper extends HttpServletRequestWrapper {
     public void checkNull(String[] parameterNames) {
         for (int i = 0; i < parameterNames.length; i++) {
             if (!parameterMap.containsKey(parameterNames[i])) {
-                String[] values = new String[] { "" };
+                String[] values = new String[] { "" };  // xml에서 id, name 지정 - 비어있으면 ""값 입력,  member는 null값으로 입력
                 parameterMap.put(parameterNames[i], values);
             }
         }
