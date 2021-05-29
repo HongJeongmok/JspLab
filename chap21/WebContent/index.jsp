@@ -7,7 +7,7 @@
 <title>회원제 게시판 예제</title>
 </head>
 <body>
-<%-- 
+<%--
 <c:if test="${! empty authUser}">
 	${authUser.name}님, 안녕하세요.
 	<a href="logout.do">[로그아웃하기]</a>
