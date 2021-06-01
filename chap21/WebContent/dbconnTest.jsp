@@ -4,7 +4,7 @@
 <html>
 <head><title>연결 테스트</title></head>
 <body>
-<%
+<% 
 	try (Connection conn = ConnectionProvider.getConnection()) {
 		out.println("커넥션 연결 성공함");
 	} catch(SQLException ex) {

@@ -2,7 +2,7 @@
 <%
 	String memberId = request.getParameter("memberId");
 	session.setAttribute("MEMBER", memberId);
-%>
+%> 
 <html>
 <head><title>로그인</title></head>
 <body>
